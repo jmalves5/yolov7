@@ -35,7 +35,7 @@ def detect(save_img=False, source='inference/images', weights='yolov7.pt', view_
     imgsz = check_img_size(imgsz, s=stride)  # check img_size
 
     if trace:
-        model = TracedModel(model, device, img_size)
+        model = TracedModel(model, device, imgsz)
 
     if half:
         model.half()  # to FP16
@@ -49,7 +49,6 @@ def detect(save_img=False, source='inference/images', weights='yolov7.pt', view_
     # Set Dataloader
     vid_path, vid_writer = None, None
     if webcam:
-        view_img = check_imshow()
         cudnn.benchmark = True  # set True to speed up constant image size inference
         dataset = LoadStreams(source, img_size=imgsz, stride=stride)
     else:
