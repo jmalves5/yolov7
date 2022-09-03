@@ -131,6 +131,7 @@ def check_img_size(img_size, s=32):
 def check_imshow():
     # Check if environment supports image displays
     try:
+        assert os.environ['DISPLAY'], 'cv2.imshow() cannot run without X server access'
         cv2.imshow('test', np.zeros((1, 1, 3)))
         cv2.waitKey(1)
         cv2.destroyAllWindows()
