@@ -132,9 +132,6 @@ def check_imshow():
     # Check if environment supports image displays
     try:
         assert os.environ['DISPLAY'], 'cv2.imshow() cannot run without X server access'
-        cv2.imshow('test', np.zeros((1, 1, 3)))
-        cv2.destroyAllWindows()
-        cv2.waitKey(1)
         return True
     except Exception as e:
         print(f'WARNING: Environment does not support cv2.imshow() or PIL Image.show() image displays\n{e}')
