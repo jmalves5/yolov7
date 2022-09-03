@@ -15,7 +15,7 @@ from utils.plots import plot_one_box
 from utils.torch_utils import select_device, load_classifier, time_synchronized, TracedModel
 
 
-def detect(save_img=False, source='inference/images', weights='yolov7.pt', view_img=True, save_txt=False, imgsz=640, trace=False, nosave=True, conf_thres=0.25, iou_thres=0.45, device='', save_conf=False, classes='', agnostic_nms=False, augment=False, update=False, project='runs/detect', name='exp', exist_ok=False):
+def detect(save_img=False, source='inference/images', weights='yolov7.pt', view_img=True, save_txt=False, imgsz=640, trace=False, nosave=True, conf_thres=0.25, iou_thres=0.45, device='', save_conf=False, classes=None, agnostic_nms=False, augment=False, update=False, project='runs/detect', name='exp', exist_ok=False):
     save_img = not nosave and not source.endswith('.txt')  # save inference images
     webcam = source.isnumeric() or source.endswith('.txt') or source.lower().startswith(
         ('rtsp://', 'rtmp://', 'http://', 'https://'))
